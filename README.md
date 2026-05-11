@@ -11,11 +11,15 @@
 npm install paycrypto-payouts-node-client
 ```
 
-Установка **напрямую из репозитория** (при установке выполнится `prepare` → сборка `dist`):
+С **npm Registry** в проект попадает уже собранный **`dist`** (поле `files` в манифесте) — быстрее и без компилятора TypeScript у потребителя.
+
+Установка **напрямую из репозитория** (скрипт `prepare` → сборка `dist`; подтягиваются devDependencies, первый install дольше, чем с Registry):
 
 ```bash
 npm install git+https://github.com/PayCryptoOne/paycrypto-payouts-node-client.git
 ```
+
+Рантайм: **Node.js ≥ 18** (см. `engines` в `package.json`). Для запуска **тестов пакета** (Vitest) удобнее **20 / 22 / текущий LTS**; на других версиях npm может показать предупреждение `EBADENGINE`, на установку библиотеки в приложение это обычно не влияет.
 
 Локально из клона:
 
