@@ -1,5 +1,8 @@
 # PayCrypto payouts Node.js client
 
+- **NPM:** [paycrypto-payouts-node-client](https://www.npmjs.com/package/paycrypto-payouts-node-client)
+- **GitHub:** [PayCryptoOne/paycrypto-payouts-node-client](https://github.com/PayCryptoOne/paycrypto-payouts-node-client)
+
 Клиент для публичного API выплат PayCrypto: базовый URL по умолчанию `https://api.paycrypto.one/api/v1` (префикс `/api/v1` уже в пути), дальше методы вида `POST …/payout/...`. Авторизация: Bearer `sk_payout_*`; при создании выплаты — мастер-пароль в заголовке `X-Payout-Master-Password` (или в теле `masterPassword`, нежелательно из‑за логов).
 
 ## Установка
@@ -10,7 +13,7 @@
 npm install paycrypto-payouts-node-client
 ```
 
-Установка **напрямую из репозитория** (ветка по умолчанию; при первом `npm install` выполнится сборка `dist` через скрипт `prepare`):
+Установка **напрямую из репозитория** (при установке выполнится `prepare` → сборка `dist`):
 
 ```bash
 npm install git+https://github.com/PayCryptoOne/paycrypto-payouts-node-client.git
@@ -254,6 +257,17 @@ try {
   }
 }
 ```
+
+## Публикация в npm (maintainers)
+
+Тот же npm-аккаунт, что и для [paycrypto-node-client](https://www.npmjs.com/package/paycrypto-node-client): `npm login`, затем одноразовый код 2FA из приложения:
+
+```bash
+cd paycrypto-payouts-node-client
+NPM_OTP=123456 npm run publish:otp
+```
+
+Перед публикацией срабатывает `prepublishOnly` (сборка и `npm test`). Имя пакета в реестре: **`paycrypto-payouts-node-client`**.
 
 ## Тесты
 
