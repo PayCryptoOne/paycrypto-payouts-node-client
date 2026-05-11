@@ -27,7 +27,7 @@
     "e2e": "tsx scripts/e2e.ts",
     "test:live": "tsx scripts/live-api.ts",
     "prepublishOnly": "npm run build && npm run test",
-    "publish:otp": "bash scripts/publish-with-otp.sh"
+    "publish:npm": "npm publish --access public"
   },
   "engines": {
     "node": ">=18"

@@ -7,8 +7,6 @@
 
 ## Установка
 
-После публикации пакета в npm под именем **`paycrypto-payouts-node-client`**:
-
 ```bash
 npm install paycrypto-payouts-node-client
 ```
@@ -260,14 +258,16 @@ try {
 
 ## Публикация в npm (maintainers)
 
-Тот же npm-аккаунт, что и для [paycrypto-node-client](https://www.npmjs.com/package/paycrypto-node-client): `npm login`, затем одноразовый код 2FA из приложения:
+Тот же npm-аккаунт, что и для [paycrypto-node-client](https://www.npmjs.com/package/paycrypto-node-client). Один раз войди в реестр (`npm login` / «Sign in with GitHub» в браузере — как настроено у аккаунта).
+
+Выпуск новой версии в реестр:
 
 ```bash
 cd paycrypto-payouts-node-client
-NPM_OTP=123456 npm run publish:otp
+npm run publish:npm
 ```
 
-Перед публикацией срабатывает `prepublishOnly` (сборка и `npm test`). Имя пакета в реестре: **`paycrypto-payouts-node-client`**.
+Перед публикацией срабатывает `prepublishOnly` (сборка и `npm test`). Дальше `npm publish` сам откроет браузер или системный запрос, если npm попросит второй фактор: подтверждение **Touch ID** на Mac или **аппаратным ключом** (WebAuthn), без ввода шестизначного OTP в терминал.
 
 ## Тесты
 
